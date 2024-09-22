@@ -8,27 +8,28 @@
 <body id="body"> 
   <div class="form-container">
        <p class="title">SingularityNET CSD</p>
-       <form class="signUpForm">
-        <div id="alert" class="alert hidden">Please fill out the required field!</div>
-         <input type="email" id="email" class="input" placeholder="Email">
-         <input type="password" id="password" class="input" placeholder="Password">
-         <p class="page-link">
-           <span class="page-link-label">Forgot Password?</span>
-         </p>
+       <form id="signUpFormDetails" class="signUpForm">
+        <div id="confirmationMessage" class="alert"></div>
+        <input type="email" id="signUpEmail" class="input" placeholder="Email">
+        <div class="password-wrapper">
+         <input type="password" id="signUpPassword" class="input" placeholder="Password">
+         <span id="togglePassword" class="eye-icon" style="cursor: pointer;"><i class="fa-solid fa-eye"></i></span> <!-- Password visibility toggle -->
+        </div>
+         <div class="h-captcha" data-sitekey="7d8ced36-0f1e-4442-a8cc-72b2b610acbe"></div>
          <button id="signUpBtn" class="form-btn">Sign Up</button>
        </form>
        <p class="sign-up-label">
-         Already have an account?<span class="sign-up-link">Log in</span>
+         Already have an account?<a href="login.html" class="login-up-link">Log in</a>
        </p>
        <div  class="buttons-container">
          <div id="gitHubSignUpBtn" class="gitHub-sign-up-button">
           <i class="fa-brands fa-github"></i>
-           <span>Log in with GitHub</span>
+           <span>Sign up with GitHub</span>
          </div>
-          <div id="discordSignUpBtn" class="discord-sign-up-button">
+          <button id="discordSignUpBtn" class="discord-sign-up-button">
             <i class="fa-brands fa-discord"></i>
-            <span>Log in with Discord</span>
-          </div>
+            <span>Sign up with Discord</span>
+          </button>
          <div id="googleSignUpBtn" class="google-sign-up-button">
            <svg stroke="currentColor" fill="currentColor" stroke-width="0" version="1.1" x="0px" y="0px" class="google-icon" viewBox="0 0 48 48" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg">
              <path fill="#FFC107" d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12
@@ -41,33 +42,27 @@
              <path fill="#1976D2" d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571
                c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z"></path>
            </svg>
-           <span>Log in with Google</span>
+           <span>Sign up with Google</span>
          </div>
        </div>
      </div>
-   <!-- Font Awesome for Google/GitHub icons -->
+   <!-- Font Awesome cdn -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+   <!--  install @supabase/supabase-js via CDN links. -->
+   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+//or
+<script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+<!-- hCaptcha API -->
+<script src="https://js.hcaptcha.com/1/api.js" async defer></script>
 
-   <script type="module">
-  // Imported functions from firebase SDKs 
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-app.js";
-  import { getAuth,createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-auth.js";
+  <script type="module" src="supabaseClient.js"></script>
+  <script type="module" src="auth.js"></script>
+ 
 
-  //web app's Firebase configuration
-  const firebaseConfig = {
-    apiKey: "AIzaSyB0ecywGJ6w1BtnDweOcr7t1x0ziUHysGM",
-    authDomain: "snet-csd-02.firebaseapp.com",
-    projectId: "snet-csd-02",
-    storageBucket: "snet-csd-02.appspot.com",
-    messagingSenderId: "1060448214273",
-    appId: "1:1060448214273:web:8d36797c3311f8292c8f00"
-  };
+  <script>
+    
+  </script>
 
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  const auth = getAuth(app);
-
-
-</script>
+ 
 </body>
 </html>

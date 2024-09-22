@@ -57,12 +57,13 @@ body{
 
 .form-container {
     width: 350px;
-    height: 565px;
+    height: 400px;
     background-color: #fff;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     border-radius: 10px;
     box-sizing: border-box;
     padding: 20px 30px;
+    transform: translate(520px,0);
   }
   
   .title {
@@ -75,11 +76,11 @@ body{
     color: #1E045D;
 
   }
-  .titleSpan{
+  .titlea{
     color: #59005A;
   }
   
-  .signUpForm{
+  .logInForm{
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -95,25 +96,25 @@ body{
     padding: 12px 15px;
   }
   
-  .page-link {
+  /* .page-link {
     text-decoration: underline;
     margin: 0;
     text-align: end;
     color: #747474;
     text-decoration-color: #747474;
-  }
-  
+  } */
+/*   
   .page-link-label {
     cursor: pointer;
     font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
           "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
     font-size: 9px;
     font-weight: 700;
-  }
+  } */
   
-  .page-link-label:hover {
+  /* .page-link-label:hover {
     color: #000;
-  }
+  } */
   
   .form-btn {
     padding: 10px 15px;
@@ -132,15 +133,15 @@ body{
     box-shadow: none;
   }
   
-  .sign-up-label {
+  /* .sign-up-label {
     margin: 0;
     font-size: 10px;
     color: #747474;
     font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
           "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-  }
-  
-  .login-up-link {
+  } */
+/*   
+  .sign-up-link {
     margin-left: 1px;
     font-size: 11px;
     text-decoration: underline;
@@ -150,7 +151,7 @@ body{
     font-weight: 800;
     font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
           "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-  }
+  } */
   
   .buttons-container {
     width: 100%;
@@ -160,7 +161,7 @@ body{
     margin-top: 20px;
     gap: 15px;
   }
-  
+/*   
   .gitHub-sign-up-button,
   .discord-sign-up-button,
       .google-sign-up-button {
@@ -193,7 +194,7 @@ body{
   
   .google-sign-up-button {
     border: 2px solid #747474;
-  }
+  } */
 
  
  
@@ -204,7 +205,7 @@ body{
       width: 90%; /* Responsive width for tablets */
       max-width: 900px; /* Limit the max width for tablets */
       height: auto; /* Adjust height to content */
-      transform: translate(0, 40px); /* Center horizontally */
+      transform: translate(0, 200px); /* Center horizontally */
       margin: 0 auto; /* Ensure centering */
       padding: 10px; /* Keep padding consistent */
     }
@@ -213,18 +214,20 @@ body{
   /* Laptops (max-width: 1199px) */
   @media only screen and (max-width: 1199px) {
     .form-container {
-      width: 40%; /* Adjust width to 70% for laptops */
+    top: auto;
+      width: 50%; /* Adjust width to 70% for laptops */
       max-width: 350px; /* Set a max width for better layout */
-      transform: translate(0, 20px); /* Center horizontally */
+      transform: translate(0, 60px); /* Center horizontally */
       margin: 0 auto; /* Ensure centering */
       padding: 15px; /* Keep padding comfortable */
     }
   }
   @media only screen and (max-width: 1000px) {
     .form-container {
-      width: 40%; /* Adjust width to 70% for laptops */
+    top: auto;
+      width: 50%; /* Adjust width to 70% for laptops */
       max-width: 350px; /* Set a max width for better layout */
-      transform: translate(0, 40px); /* Center horizontally */
+      transform: translate(0, 100px); /* Center horizontally */
       margin: 0 auto; /* Ensure centering */
       padding: 15px; /* Keep padding comfortable */
     }
@@ -235,7 +238,7 @@ body{
   /* Large desktops (min-width: 1200px) */
   @media only screen and (min-width: 1200px) {
     .form-container {
-      width: 40%; /* Wider layout for large screens */
+      width: 50%; /* Wider layout for large screens */
       max-width: 350px; /* Limit the form size on large desktops */
       transform: translate(0, 35px); /* No translation needed */
       margin: 0 auto; /* Center the form */
@@ -251,7 +254,7 @@ body{
       max-width: 350px; /* Set a max-width, but allow it to shrink if needed */
       margin: 0 auto; /* Center the form horizontally */
       padding: 15px; /* Add some padding inside */
-      transform: translate(0, 40px); /* Ensure no unwanted transforms */
+      transform: translate(0, 90px); /* Ensure no unwanted transforms */
     }
   }
   
@@ -261,6 +264,6 @@ body{
       width: 90%; /* Make the form take up most of the screen */
       max-width: 350px; /* Keep the max-width to prevent it from getting too wide */
       margin: 0 auto; /* Center it */
-      transform: translate(0, 40px); /* Avoid shifting the form with translate */
+      transform: translate(0, 90px); /* Avoid shifting the form with translate */
     }
   }
