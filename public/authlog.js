@@ -36,17 +36,6 @@ const resetCaptcha = ()=>{
   }
 }
 
-// Check if email exists in Supabase before login
-const checkEmailExists = async(email)=>{
-  const{data, error} = await supabase
-  .from('users')  // The table where user information is stored
-  .select('email')
-  .eq('email', email)
-  .single();
-
-  return data; // Returns user data if the email exists, otherwise null
-}
-
 
 // Toggle password visibility
 togglePassword.addEventListener('click', () => {
@@ -91,16 +80,6 @@ loginForm.addEventListener('submit', async (event) => {
 
   // Proceed with login using Supabase (password validation is handled by Supabase)
   try {
-        // Check if the email exists
-        const emailExists = await checkEmailExists(email);
-
-        if (!emailExists) {
-          showLoginError('This is not the email you used during signup.');
-          resetCaptcha();  // Reset hCaptcha
-          return;
-        }
-
-
     const { data, error } = await supabase.auth.signInWithPassword({
       email,
       password,
@@ -113,7 +92,8 @@ loginForm.addEventListener('submit', async (event) => {
      if (error) {
       console.error('Supabase Error:', error);  // Log the error for debugging
       if (error.message.includes('Invalid login credentials')) {
-        showLoginError('Incorrect password. Please try again.');
+         // Handle invalid email or password (no distinction from Supabase)
+         showLoginError('Incorrect email or password. Please try again.');
       } else {
         showLoginError('Login failed: ' + error.message);
       }
