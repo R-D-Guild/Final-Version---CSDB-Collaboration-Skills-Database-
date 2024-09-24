@@ -1,0 +1,35 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forgot Password Page</title>
+    <link rel="stylesheet" href="styleForgotPass.css">
+</head>
+<body style="background-color: #444444;">
+    
+    <div class="form-container">
+        <p class="title">SingularityNET CSD Forgot Password</p>
+        <form id="forgotPassFormDetails" class="forgotPassForm" >
+          <div id="forgotPassErrorMessage" class="alert"></div>
+          <input type="email" id="forgotPassEmail" class="input" placeholder="Email">
+          <div class="h-captcha" data-sitekey="7d8ced36-0f1e-4442-a8cc-72b2b610acbe"></div>
+          <button id="forgotPassBtn" class="form-btn" type="submit">Submit</button>
+        </form>
+    </div>
+
+    <!-- Popup Confirmation (Initially Hidden) -->
+<div id="confirmationPopup" class="popup" style="display: none;">
+  <div class="popup-content">
+    <p>Password reset email has been sent! Please check your inbox.</p>
+    <button id="closePopup">OK</button>
+  </div>
+</div>
+</body>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<!-- hCaptcha API -->
+<script src="https://js.hcaptcha.com/1/api.js" async defer></script>
+    <!--  install @supabase/supabase-js via CDN links. -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@latest"></script>4
+    <script type="module" src="authForgotPass.js"></script>
+</html>
