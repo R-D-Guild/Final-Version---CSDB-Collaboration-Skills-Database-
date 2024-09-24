@@ -1,4 +1,4 @@
-23663
+23665
 76C:\Users\Hp\OneDrive\Desktop\Work\CH test3\venv\Lib\site-packages\setuptools133701487762896875 1
 73C:\Users\Hp\OneDrive\Desktop\Work\CH test3\node_modules\acorn\dist\bin.js133706539717296824 0
 128C:\Users\Hp\OneDrive\Desktop\Work\CH test3\venv\Lib\site-packages\django\contrib\admin\static\admin\js\vendor\select2\i18n\ca.js133701487578355361 0
@@ -30,7 +30,7 @@
 71C:\Users\Hp\OneDrive\Desktop\Work\CH test3\node_modules\source-map\dist133705257396106067 1
 99C:\Users\Hp\OneDrive\Desktop\Work\CH test3\venv\Lib\site-packages\tzdata\zoneinfo\Europe\Zaporozhye133701487772869003 0
 91C:\Users\Hp\OneDrive\Desktop\Work\CH test3\node_modules\htmlparser2\lib\WritableStream.d.ts133706571477519880 0
-47C:\Users\Hp\OneDrive\Desktop\Work\CH test3\dist133716606635752357 1
+47C:\Users\Hp\OneDrive\Desktop\Work\CH test3\dist133716673911057502 1
 101C:\Users\Hp\OneDrive\Desktop\Work\CH test3\node_modules\@parcel\optimizer-svgo\node_modules\commander133706571472419484 1
 53C:\Users\Hp\OneDrive\Desktop\Work\CH test3\.gitignore133716572647835200 0
 123C:\Users\Hp\OneDrive\Desktop\Work\CH test3\venv\Lib\site-packages\django\contrib\admindocs\locale\dsb\LC_MESSAGES\django.po133701487584689864 0
@@ -1335,6 +1335,7 @@
 100C:\Users\Hp\OneDrive\Desktop\Work\CH test3\venv\Lib\site-packages\django\db\backends\mysql\client.py133701487697661424 0
 125C:\Users\Hp\OneDrive\Desktop\Work\CH test3\venv\Lib\site-packages\django\contrib\contenttypes\locale\ne\LC_MESSAGES\django.mo133701487616202720 0
 120C:\Users\Hp\OneDrive\Desktop\Work\CH test3\venv\Lib\site-packages\django\contrib\gis\static\gis\img\draw_polygon_off.svg133701487645935295 0
+69C:\Users\Hp\OneDrive\Desktop\Work\CH test3\dist\login.b8bce67b.js.map133716673911013702 0
 90C:\Users\Hp\OneDrive\Desktop\Work\CH test3\venv\Lib\site-packages\tzdata\zoneinfo\Portugal133716562435853646 0
 89C:\Users\Hp\OneDrive\Desktop\Work\CH test3\venv\Lib\site-packages\tzdata\zoneinfo\PST8PDT133716562435708542 0
 75C:\Users\Hp\OneDrive\Desktop\Work\CH test3\node_modules\lodash\isWeakMap.js133705250242592297 0
@@ -9917,7 +9918,7 @@
 122C:\Users\Hp\OneDrive\Desktop\Work\CH test3\venv\Lib\site-packages\django\contrib\flatpages\locale\mr\LC_MESSAGES\django.mo133701487625989456 0
 103C:\Users\Hp\OneDrive\Desktop\Work\CH test3\venv\Lib\site-packages\django\contrib\redirects\locale\es_MX133701487662620308 1
 103C:\Users\Hp\OneDrive\Desktop\Work\CH test3\venv\Lib\site-packages\django\contrib\redirects\locale\es_VE133701487663429070 1
-61C:\Users\Hp\OneDrive\Desktop\Work\CH test3\public\signUp.html133715216947242775 0
+61C:\Users\Hp\OneDrive\Desktop\Work\CH test3\public\signUp.html133716632502081423 0
 118C:\Users\Hp\OneDrive\Desktop\Work\CH test3\venv\Lib\site-packages\django\contrib\admin\locale\io\LC_MESSAGES\django.po133701487565442679 0
 102C:\Users\Hp\OneDrive\Desktop\Work\CH test3\node_modules\caniuse-lite\data\features\css-mixblendmode.js133705257431089843 0
 125C:\Users\Hp\OneDrive\Desktop\Work\CH test3\venv\Lib\site-packages\django\contrib\contenttypes\locale\da\LC_MESSAGES\django.mo133701487604977148 0
@@ -12773,7 +12774,7 @@
 77C:\Users\Hp\OneDrive\Desktop\Work\CH test3\node_modules\semver\internal\re.js133706571487938753 0
 86C:\Users\Hp\OneDrive\Desktop\Work\CH test3\node_modules\@swc\helpers\_\_inherits_loose133706571499245830 1
 126C:\Users\Hp\OneDrive\Desktop\Work\CH test3\venv\Lib\site-packages\django\contrib\contenttypes\locale\ast\LC_MESSAGES\django.po133701487604135101 0
-63C:\Users\Hp\OneDrive\Desktop\Work\CH test3\dist\forgotPass.html133716606635183264 0
+63C:\Users\Hp\OneDrive\Desktop\Work\CH test3\dist\forgotPass.html133716673910809009 0
 128C:\Users\Hp\OneDrive\Desktop\Work\CH test3\venv\Lib\site-packages\django\contrib\contenttypes\locale\ar_DZ\LC_MESSAGES\django.po133701487604095035 0
 115C:\Users\Hp\OneDrive\Desktop\Work\CH test3\venv\Lib\site-packages\django\contrib\contenttypes\locale\ar\LC_MESSAGES133701487604005469 1
 125C:\Users\Hp\OneDrive\Desktop\Work\CH test3\venv\Lib\site-packages\django\contrib\contenttypes\locale\ar\LC_MESSAGES\django.mo133701487603992980 0
@@ -16507,7 +16508,7 @@
 118C:\Users\Hp\OneDrive\Desktop\Work\CH test3\SkillsDatabase\venv\Lib\site-packages\django_environ-0.11.2.dist-info\WHEEL133716562397742052 0
 57C:\Users\Hp\OneDrive\Desktop\Work\CH test3\public\auth.js133716014768446742 0
 77C:\Users\Hp\OneDrive\Desktop\Work\CH test3\node_modules\@supabase\auth-js\src133702211381422005 1
-60C:\Users\Hp\OneDrive\Desktop\Work\CH test3\public\authlog.js133716037572269575 0
+60C:\Users\Hp\OneDrive\Desktop\Work\CH test3\public\authlog.js133716611983529460 0
 102C:\Users\Hp\OneDrive\Desktop\Work\CH test3\node_modules\.vite\deps_temp_35c99ab5\chunk-5H4R2CZR.js.map133705234559160658 0
 66C:\Users\Hp\OneDrive\Desktop\Work\CH test3\public\authResetPass.js133715694632953997 0
 62C:\Users\Hp\OneDrive\Desktop\Work\CH test3\public\confirm.html133708168401085661 0
@@ -23644,9 +23645,10 @@
 66C:\Users\Hp\OneDrive\Desktop\Work\CH test3\dist\login.4b537bae.css133716606635202872 0
 70C:\Users\Hp\OneDrive\Desktop\Work\CH test3\dist\login.4b537bae.css.map133716606635518796 0
 69C:\Users\Hp\OneDrive\Desktop\Work\CH test3\dist\login.5cc6d810.js.map133714494864517953 0
+65C:\Users\Hp\OneDrive\Desktop\Work\CH test3\dist\login.b8bce67b.js133716673910809009 0
 65C:\Users\Hp\OneDrive\Desktop\Work\CH test3\dist\login.e7e28c0b.js133716599528689798 0
 69C:\Users\Hp\OneDrive\Desktop\Work\CH test3\dist\login.e7e28c0b.js.map133716599529019627 0
-58C:\Users\Hp\OneDrive\Desktop\Work\CH test3\dist\login.html133716606635202872 0
+58C:\Users\Hp\OneDrive\Desktop\Work\CH test3\dist\login.html133716673910809009 0
 79C:\Users\Hp\OneDrive\Desktop\Work\CH test3\dist\reset-password.37383575.css.map133716599530706945 0
 74C:\Users\Hp\OneDrive\Desktop\Work\CH test3\dist\reset-password.e07da13b.js133716599528788017 0
 78C:\Users\Hp\OneDrive\Desktop\Work\CH test3\dist\reset-password.e07da13b.js.map133716599529700208 0
@@ -23658,7 +23660,7 @@
 74C:\Users\Hp\OneDrive\Desktop\Work\CH test3\dist\signUp.runtime.df968204.js133716606635202872 0
 70C:\Users\Hp\OneDrive\Desktop\Work\CH test3\dist\signUp.c59729ce.js.map133716606635624100 0
 70C:\Users\Hp\OneDrive\Desktop\Work\CH test3\dist\signUp.f8866446.js.map133716606635683223 0
-59C:\Users\Hp\OneDrive\Desktop\Work\CH test3\dist\signUp.html133716606635183264 0
+59C:\Users\Hp\OneDrive\Desktop\Work\CH test3\dist\signUp.html133716673910809009 0
 78C:\Users\Hp\OneDrive\Desktop\Work\CH test3\dist\signUp.runtime.df968204.js.map133716606635624100 0
 80C:\Users\Hp\OneDrive\Desktop\Work\CH test3\dist\verification-pending.a4ca10ce.js133716599528708214 0
 73C:\Users\Hp\OneDrive\Desktop\Work\CH test3\dist\verification-pending.html133716599531475278 0
