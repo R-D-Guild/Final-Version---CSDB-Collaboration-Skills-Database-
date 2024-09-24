@@ -12,7 +12,6 @@
   "name": "ch-test3",
   "version": "1.0.0",
   "description": "@SNET_Ambassadors COLLABORATION SKILLS DATABASE \r The attached project is the development carried out by @AJ & @advanceameyaw as replacements for @PureRelativity (Curtis)\r after he had to delegate the continuation of tasks due to personal problems.",
-  "main": "index.js",
   "scripts": {
     "dev": "parcel public/signUp.html public/verification-pending.html public/dashardboard.html public/forgotPass.html public/reset-password.html",
     "build": "parcel build signUp.html"

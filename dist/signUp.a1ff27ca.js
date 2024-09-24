@@ -589,7 +589,7 @@ parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "supabase", ()=>supabase);
 var _supabaseJs = require("@supabase/supabase-js");
 // Access the environment variables with the PARCEL_ prefix
-const SUPABASE_URL = "https://xgosvhfnlusxpcgxnltv.supabase.co/";
+const SUPABASE_URL = "https://xgosvhfnlusxpcgxnltv.supabase.co";
 const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inhnb3N2aGZubHVzeHBjZ3hubHR2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjU3NDcyNjgsImV4cCI6MjA0MTMyMzI2OH0.wQ7fpjb0SZIpNvCycsjXbOtKOTDvzr_p5o5kfZD_Jyk";
 const supabase = (0, _supabaseJs.createClient)(SUPABASE_URL, SUPABASE_KEY);
 
