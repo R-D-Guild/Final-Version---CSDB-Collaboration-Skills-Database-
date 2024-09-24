@@ -1,6 +1,6 @@
 from pathlib import Path
 import os
-
+import environ
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -44,7 +44,7 @@ ROOT_URLCONF = 'SkillsDatabase.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR,'templates'],
+        'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -63,16 +63,24 @@ WSGI_APPLICATION = 'SkillsDatabase.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
+
+# Initialize environment variables
+env = environ.Env()
+environ.Env.read_env()
+
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'skills_database',  # Database name
-        'USER': 'advanceamey',  # Your PostgreSQL username
-        'PASSWORD': 'advance',  # Your PostgreSQL password
-        'HOST': 'localhost',  # Database host
-        'PORT': '5432',  # Database port
+        'NAME': env('DB_NAME'), 
+        'USER': env('DB_USER'),
+        'PASSWORD': env('DB_PASSWORD'),  
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
+
+
 
 
 # Password validation
@@ -117,7 +125,7 @@ STATICFILES_DIRS = [
 ]
 
 # Absolute path where collectstatic will collect static files for deployment
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 
 # Default primary key field type
