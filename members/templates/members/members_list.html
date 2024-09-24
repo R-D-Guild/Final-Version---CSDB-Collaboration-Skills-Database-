@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,7 +16,7 @@
 
         h1, h2 {
             color: #f39938;
-            text-align: center; /* Center the heading */
+            text-align: center;
         }
 
         form {
@@ -40,8 +41,8 @@
 
         input[type="text"],
         input[type="number"],
-        select,
-        textarea {
+        textarea,
+        select {
             width: 100%;
             padding: 8px;
             margin-bottom: 10px;
@@ -49,13 +50,6 @@
             border-radius: 4px;
             box-sizing: border-box;
             background-color: #090c23;
-            color: #f39938;
-        }
-
-        input[type="text"]::placeholder,
-        input[type="number"]::placeholder,
-        select::placeholder,
-        textarea::placeholder {
             color: #f39938;
         }
 
@@ -93,31 +87,12 @@
 
     <fieldset>
         <legend><h2>Skill Information</h2></legend>
-        <label for="soft_skills">Soft Skills</label>
-        <input type="text" id="soft_skills" name="soft_skills" placeholder="e.g., Communication, Teamwork">
-
-        <label for="hard_skills">Hard Skills</label>
-        <input type="text" id="hard_skills" name="hard_skills" placeholder="e.g., Python, Data Analysis">
-
-        <!-- Removed the Skill Type field -->
-
-        <label for="expertise">Expertise</label>
-        <input type="text" id="expertise" name="expertise" placeholder="e.g., Expert in Python">
-
-        <label for="experience_years">Years of Experience</label>
-        <input type="number" id="experience_years" name="experience_years" placeholder="e.g., 5">
-
-        <label for="proficiency">Proficiency</label>
-        <select id="proficiency" name="proficiency">
-            <option value="beginner">Beginner</option>
-            <option value="intermediate">Intermediate</option>
-            <option value="advanced">Advanced</option>
-        </select>
+        {{ skill_form.as_p }}  <!-- Render the skill form directly -->
     </fieldset>
 
     <fieldset>
-        <legend><h2>Availability</h2></legend>
-        {{ availability_form.as_p }}
+        <legend><h2>Plans and Availability</h2></legend>
+        {{ availability_form.as_p }}  <!-- Render the availability form directly -->
     </fieldset>
 
     <div class="button-container">
