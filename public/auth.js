@@ -4,7 +4,10 @@ import { supabase } from './supabaseClient';  // Import the Supabase client
 document.getElementById("discordSignUpBtn").addEventListener("click", function () {
     // Trigger Supabase's OAuth sign-in with Discord
     supabase.auth.signInWithOAuth({
-      provider: 'discord'
+      provider: 'discord',
+      options: {
+        redirectTo: 'http://localhost:1234/dashardboard.html' 
+      }
     });
   })
 
@@ -13,9 +16,10 @@ document.getElementById("discordSignUpBtn").addEventListener("click", function (
     // Trigger Supabase's OAuth sign-in with GitHub
     supabase.auth.signInWithOAuth({
       provider: 'github',
-    //   options: {
-    //     redirectTo: 'http://localhost:5174/dashboard' 
-    //   }
+      options: {
+        redirectTo: 'http://localhost:1234/dashardboard.html' 
+      }
+      
     })
     });
 
