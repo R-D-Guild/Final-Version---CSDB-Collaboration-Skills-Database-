@@ -11,7 +11,9 @@
 <center><button id="resendVerificationEmail">Resend Verification Email</button></center>
 <p id="resendMessage"></p>
 
-<script>const resendButton = document.getElementById("resendVerificationEmail");
+<script type="module" >
+    import { supabase } from './supabaseClient';
+const resendButton = document.getElementById("resendVerificationEmail");
 const resendMessage = document.getElementById("resendMessage");
 resendButton.addEventListener("click", async ()=>{
     resendMessage.textContent = ""; // Clear previous message
@@ -34,5 +36,5 @@ setTimeout(()=>{
 
 </script>
 
-<script src="/verification-pending.a4ca10ce.js"></script></body>
+<script src="./verification-pending.a4ca10ce.js"></script></body>
 </html>

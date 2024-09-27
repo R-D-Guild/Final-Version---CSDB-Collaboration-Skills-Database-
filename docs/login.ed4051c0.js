@@ -672,7 +672,7 @@ loginForm.addEventListener("submit", async (event)=>{
             // Success! Redirect to dashboard
             errorMessage.style.color = "green";
             errorMessage.textContent = "Login successful! Redirecting...";
-            window.location.href = "members/templates/members/members_list.html";
+            window.location.href = "/dashardboard.html";
         }, 3000);
     } catch (error) {
         console.error("Unexpected Error:", error);
