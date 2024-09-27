@@ -15,7 +15,7 @@
   "description": "@SNET_Ambassadors COLLABORATION SKILLS DATABASE",
   "scripts": {
     "dev": "parcel public/index.html public/verification-pending.html public/dashardboard.html public/forgotPass.html public/reset-password.html",
-    "build": "parcel build public/index.html --dist-dir docs"
+    "build": "parcel build public/index.html"
   },
   "targets": {
     "default": {
