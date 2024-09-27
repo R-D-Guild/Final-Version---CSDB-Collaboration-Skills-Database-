@@ -6,7 +6,7 @@ __pycache__/
 # Virtual environment
 venv/
 .venv/
-env/
+.env/
 
 # Django secret key and environment variables
 .env
