@@ -1,6 +1,9 @@
 from pathlib import Path
 import os
 import environ
+import django_heroku
+import dj_database_url
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -13,7 +16,8 @@ SECRET_KEY = 'django-insecure-5=q1$3r*)*&p$tv0ol=tc_olqng7ap-&6$434zf9-f-yfc733a
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['SkillsDatabase.herokuapp.com', 'localhost', '127.0.0.1']
+
 
 
 # Application definition
@@ -37,6 +41,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'SkillsDatabase.urls'
@@ -77,11 +82,9 @@ DATABASES = {
         'PASSWORD': env('DB_PASSWORD'),  
         'HOST': 'localhost',
         'PORT': '5432',
+        'default': dj_database_url.config(conn_max_age=600, ssl_require=True)
     }
 }
-
-
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
@@ -117,6 +120,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
+# URL to use when referring to static files
 STATIC_URL = '/static/'
 
 # Additional directories where Django will also look for static files
@@ -124,11 +128,19 @@ STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
 
-# Absolute path where collectstatic will collect static files for deployment
-# STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+# Directory where Django will collect static files for production
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+# Use WhiteNoise to serve static files in production
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+django_heroku.settings(locals())
+

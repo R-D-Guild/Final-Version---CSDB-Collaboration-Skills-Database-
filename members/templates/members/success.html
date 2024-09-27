@@ -53,6 +53,6 @@
     <h1>Form Submitted Successfully!</h1>
     <p>Thank you for submitting your information. Your data has been saved.</p>
     <a href="{% url 'members_list' %}" class="back-button">Go Back To Form</a>
-    <div class="profile-icon" title="Edit Profile">&#128100;</div> <!-- This is the profile icon -->
+    {% comment %} <div class="profile-icon" title="Edit Profile">&#128100;</div> <!-- Disabled profile edit --> {% endcomment %}
 </body>
 </html>
