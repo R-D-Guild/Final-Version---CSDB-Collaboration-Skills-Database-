@@ -20,7 +20,8 @@ SECRET_KEY = env('DJANGO_SECRET_KEY', default='your-default-secret-key')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env.bool('DEBUG', default=True)
 
-ALLOWED_HOSTS = ['SkillsDatabase.herokuapp.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['skillsdatabase-21b11771237e.herokuapp.com', 'localhost', '127.0.0.1']
+
 
 # Application definition
 INSTALLED_APPS = [
