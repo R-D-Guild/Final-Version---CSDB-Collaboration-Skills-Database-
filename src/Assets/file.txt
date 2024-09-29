@@ -1,0 +1,18 @@
+ **for SupaBase 
+ password for supabase - SingularityNET_CSD@1
+
+ project API key : eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inhnb3N2aGZubHVzeHBjZ3hubHR2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjU3NDcyNjgsImV4cCI6MjA0MTMyMzI2OH0.wQ7fpjb0SZIpNvCycsjXbOtKOTDvzr_p5o5kfZD_Jyk
+
+anon key = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inhnb3N2aGZubHVzeHBjZ3hubHR2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MjU3NDcyNjgsImV4cCI6MjA0MTMyMzI2OH0.
+
+CallBack URL : https://xgosvhfnlusxpcgxnltv.supabase.co/auth/v1/callback
+
+**for Disord
+
+client secret : -pYxQJSXh4Y9XBFLBiusDJWK1zziisMW
+client id : 1282150695059062854
+
+**for GitHub
+
+client id : Ov23liL01yBXGvOy72vv
+client secret : 06c1e7c75f070dd1175e86f2b3d29346409457d2

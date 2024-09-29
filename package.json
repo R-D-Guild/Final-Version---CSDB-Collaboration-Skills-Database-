@@ -1,41 +1,31 @@
 {
-  "dependencies": {
-    "@supabase/supabase-js": "^2.45.4",
-    "parcel": "^2.12.0"
-  },
-  "devDependencies": {
-    "@babel/preset-env": "^7.25.4",
-    "buffer": "^6.0.3",
-    "http-server": "^14.1.1",
-    "svgo": "^2.8.0",
-    "vite": "^5.4.3"
-  },
   "name": "ch-test3",
   "version": "1.0.0",
   "description": "@SNET_Ambassadors COLLABORATION SKILLS DATABASE",
   "scripts": {
-    "dev": "parcel public/index.html public/verification-pending.html public/dashardboard.html public/forgotPass.html public/reset-password.html",
-    "build": "parcel build public/index.html"
+    "dev": "webpack serve --mode development",
+    "build": "webpack --mode production",
+    "start": "npm run build && npx http-server ./dist"
   },
-  "targets": {
-    "default": {
-      "distDir": "docs",       
-      "publicUrl": "./",       
-      "sourceMap": true,       
-      "optimize": true         
-    }
+  "dependencies": {
+    "@supabase/supabase-js": "^2.45.4"
   },
-  "svgo": {
-    "plugins": [
-      {
-        "name": "preset-default",
-        "params": {
-          "overrides": {
-            "cleanupIDs": false
-          }
-        }
-      }
-    ]
+  "devDependencies": {
+    "@babel/core": "^7.25.2",
+    "@babel/preset-env": "^7.25.4",
+    "babel-loader": "^9.2.1",
+    "buffer": "^6.0.3",
+    "css-loader": "^7.1.2",
+    "dotenv-webpack": "^8.1.0",
+    "file-loader": "^6.2.0",
+    "html-webpack-plugin": "^5.6.0",
+    "http-server": "^14.1.1",
+    "mini-css-extract-plugin": "^2.9.1",
+    "style-loader": "^4.0.0",
+    "url-loader": "^4.1.1",
+    "webpack": "^5.95.0",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^5.1.0"
   },
   "author": "",
   "license": "ISC"
