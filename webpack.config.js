@@ -18,9 +18,10 @@ module.exports = {
     },
       
     output: {
-        filename: '[name].bundle.js',  // Each entry will have its own file
+        filename: '[name].[contenthash].jss',  // Each entry will have its own file
         path: path.resolve(__dirname, 'dist'),
         clean: true,  // Clean the /dist folder before each build
+        publicPath: '/',  // Serve from the root
     },
 
     module: {
@@ -86,7 +87,7 @@ module.exports = {
             chunks: [],  // No JS, just CSS
         }),
         new MiniCssExtractPlugin({
-            filename: '[name].css',  // Generates [name].css for each bundle
+            filename: '[name].[contenthash].css',  // Generate CSS files with a hash for cache busting  
         }),
         new Dotenv(),  // Load env
     ],
