@@ -31,3 +31,5 @@ media/
 # Others
 *.pot
 .vercel
+node_modules
+
