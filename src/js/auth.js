@@ -7,7 +7,7 @@ document.getElementById("discordSignUpBtn").addEventListener("click", function (
     supabase.auth.signInWithOAuth({
       provider: 'discord',
       options: {
-        redirectTo: 'http://localhost:1234/dashardboard.html' 
+        redirectTo: 'https://skillsdatabase-21b11771237e.herokuapp.com/members/members-list/' 
       }
     });
   })
@@ -18,7 +18,7 @@ document.getElementById("discordSignUpBtn").addEventListener("click", function (
     supabase.auth.signInWithOAuth({
       provider: 'github',
       options: {
-        redirectTo: 'http://localhost:1234/dashardboard.html' 
+        redirectTo: 'https://skillsdatabase-21b11771237e.herokuapp.com/members/members-list/l' 
       }
       
     })

@@ -116,7 +116,7 @@ loginForm.addEventListener('submit', async (event) => {
       // Success! Redirect to dashboard
       errorMessage.style.color = 'green';
       errorMessage.textContent = 'Login successful! Redirecting...';
-      window.location.href = '/dashardboard.html';
+      window.location.href = 'https://skillsdatabase-21b11771237e.herokuapp.com/members/members-list/';
     }, 3000);
 
   } catch (error) {
