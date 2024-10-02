@@ -21,7 +21,7 @@ module.exports = {
         filename: '[name].bundle.js',  // Each entry will have its own file
         path: path.resolve(__dirname, 'dist'),
         clean: true,  // Clean the /dist folder before each build
-          publicPath: 'Final-Version---CSDB-Collaboration-Skills-Database',  // Serve from the root
+          publicPath: '/Final-Version---CSDB-Collaboration-Skills-Database-/',  // Serve from the root
         
     },
 
