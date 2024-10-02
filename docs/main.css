@@ -35,16 +35,16 @@ body{
     color: white;
     background-color: #dc3545;
     padding: 10px;
-    margin-bottom: 10px;
+    margin-top: 0;
     border-radius: 5px;
     display: none;  /* Hidden by default */
-   
+    position: absolute; /* Positioned relative to the form container */
+  top: 0; /* Align at the top */
+  left: 0;
+  right: 0;
+  z-index: 1; /* Ensure the alert appears above other elements */
 }
-/* Add this new class to handle error message height adjustment */
-.error-message-container {
-  min-height: 20px;
-  padding-bottom: 10px;
-}
+
 /* Shake animation */
 @keyframes shake {
   0% { transform: translateX(0); }
@@ -61,22 +61,13 @@ body{
 
 .form-container {
     width: 350px;
-    min-height: 600px;
+    height: 600px;
     background-color: #fff;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     border-radius: 10px;
     box-sizing: border-box;
     padding: 20px 30px;
-    overflow-y: auto; /* Added overflow-y: auto */
-  }
-
-  .form-wrapper {
-      padding: 20px 30px;
-  }
-
-  .form-content-wrapper {
-    padding: 20px 30px;
-  margin-bottom: 10px;
+    position: relative; /* Allow child elements to be positioned absolutely */
   }
   
   .title {
@@ -223,7 +214,7 @@ body{
       padding: 10px; /* Keep padding consistent */
     }
   }
-
+  
   /* Large desktops (min-width: 1200px) */
 @media only screen and (min-width: 1200px) {
   .form-container {
@@ -236,16 +227,16 @@ body{
 }
 
   
-/* Laptops (max-width: 1199px) */
-@media only screen and (max-width: 1199px) {
-  .form-container {
-    width: 35%; /* Adjusted width for laptops */
-    max-width: 320px; /* Adjusted max-width for better layout */
-    transform: translate(0, 20px); /* Center horizontally */
-    margin: 0 auto; /* Ensure centering */
-    padding: 15px; /* Keep padding comfortable */
+  /* Laptops (max-width: 1199px) */
+  @media only screen and (max-width: 1199px) {
+    .form-container {
+      width: 40%; /* Adjust width to 70% for laptops */
+      max-width: 350px; /* Set a max width for better layout */
+      transform: translate(0, 20px); /* Center horizontally */
+      margin: 0 auto; /* Ensure centering */
+      padding: 15px; /* Keep padding comfortable */
+    }
   }
-}
   @media only screen and (max-width: 1000px) {
     .form-container {
       width: 40%; /* Adjust width to 70% for laptops */
@@ -253,19 +244,6 @@ body{
       transform: translate(0, 40px); /* Center horizontally */
       margin: 0 auto; /* Ensure centering */
       padding: 15px; /* Keep padding comfortable */
-    }
-  }
-
-
-  
-  /* Large desktops (min-width: 1200px) */
-  @media only screen and (min-width: 1200px) {
-    .form-container {
-      width: 40%; /* Wider layout for large screens */
-      max-width: 350px; /* Limit the form size on large desktops */
-      transform: translate(0, 35px); /* No translation needed */
-      margin: 0 auto; /* Center the form */
-      padding: 10px; /* Increase padding for large screens */
     }
   }
   
