@@ -43,7 +43,7 @@ body{
     color: white;
     background-color: #dc3545;
     padding: 5px;
-    margin-top: -30px;
+    margin-top: 0px;
     border-radius: 5px;
     display: none;  /* Hidden by default */
     position: absolute; /* Positioned relative to the form container */
@@ -846,7 +846,7 @@ body{
     color: white;
     background-color: #dc3545;
     padding: 5px;
-   margin-top: -30px;
+   margin-top: 0px;
     border-radius: 5px;
     display: none;  /* Hidden by default */
     position: absolute;
