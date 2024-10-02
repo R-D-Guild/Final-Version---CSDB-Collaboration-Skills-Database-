@@ -34,16 +34,17 @@ body{
 .alert {
     color: white;
     background-color: #dc3545;
-    position: absolute; /* Take the error message out of the document flow */
-  bottom: 0; /* Position the error message at the bottom of the form container */
-  left: 0; /* Align the error message to the left */
-  width: 100%; /* Make the error message full-width */
-  padding: 10px;
+    padding: 10px;
+    margin-bottom: 10px;
     border-radius: 5px;
     display: none;  /* Hidden by default */
    
 }
-
+/* Add this new class to handle error message height adjustment */
+.error-message-container {
+  min-height: 20px;
+  padding-bottom: 10px;
+}
 /* Shake animation */
 @keyframes shake {
   0% { transform: translateX(0); }
@@ -59,14 +60,23 @@ body{
 
 
 .form-container {
-  position: relative; /* Create a new positioning context */
     width: 350px;
-    height: 600px;
+    min-height: 600px;
     background-color: #fff;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     border-radius: 10px;
     box-sizing: border-box;
     padding: 20px 30px;
+    overflow-y: auto; /* Added overflow-y: auto */
+  }
+
+  .form-wrapper {
+      padding: 20px 30px;
+  }
+
+  .form-content-wrapper {
+    padding: 20px 30px;
+  margin-bottom: 10px;
   }
   
   .title {
@@ -236,7 +246,6 @@ body{
     padding: 15px; /* Keep padding comfortable */
   }
 }
-
   @media only screen and (max-width: 1000px) {
     .form-container {
       width: 40%; /* Adjust width to 70% for laptops */
