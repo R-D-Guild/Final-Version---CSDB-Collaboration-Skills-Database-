@@ -31,15 +31,23 @@ body{
   color: #aaa;
 }
 
+.captcha-container {
+  width: 100%; /* Ensure it takes the full width of the form */
+  margin-top: 10px; /* Add some spacing */
+  display: flex; /* Make it flexible to handle screen sizes */
+  justify-content: center; /* Center the captcha */
+}
+
+
 .alert {
     color: white;
     background-color: #dc3545;
     padding: 10px;
-    margin-top: 0;
+    margin-top: 20px;
+    margin-bottom: 10px;
     border-radius: 5px;
     display: none;  /* Hidden by default */
     position: absolute; /* Positioned relative to the form container */
-  top: 0; /* Align at the top */
   left: 0;
   right: 0;
   z-index: 1; /* Ensure the alert appears above other elements */
@@ -213,16 +221,25 @@ body{
       margin: 0 auto; /* Ensure centering */
       padding: 10px; /* Keep padding consistent */
     }
+
+    .captcha-container {
+      margin-top: 20px; /* Adjust spacing for the captcha */
+    }
   }
   
   /* Large desktops (min-width: 1200px) */
 @media only screen and (min-width: 1200px) {
   .form-container {
-    width: 30%; /* Reduced width for large screens */
-    max-width: 300px; /* Adjusted max-width for better layout */
+    width: 40%; /* Reduced width for large screens */
+    max-width: 500px; /* Adjusted max-width for better layout */
     transform: translate(0, 35px); /* No translation needed */
     margin: 0 auto; /* Center the form */
     padding: 10px; /* Increase padding for large screens */
+    
+  }
+
+  .captcha-container {
+    margin-top: 20px; /* Adjust spacing for the captcha */
   }
 }
 
@@ -236,6 +253,10 @@ body{
       margin: 0 auto; /* Ensure centering */
       padding: 15px; /* Keep padding comfortable */
     }
+
+    .captcha-container {
+      margin-top: 20px; /* Adjust spacing for the captcha */
+    }
   }
   @media only screen and (max-width: 1000px) {
     .form-container {
@@ -244,6 +265,10 @@ body{
       transform: translate(0, 40px); /* Center horizontally */
       margin: 0 auto; /* Ensure centering */
       padding: 15px; /* Keep padding comfortable */
+    }
+
+    .captcha-container {
+      margin-top: 20px; /* Adjust spacing for the captcha */
     }
   }
   
@@ -257,6 +282,10 @@ body{
       padding: 15px; /* Add some padding inside */
       transform: translate(0, 40px); /* Ensure no unwanted transforms */
     }
+
+    .captcha-container {
+      margin-top: 20px; /* Adjust spacing for the captcha */
+    }
   }
   
   /* Smaller screens (max-width: 700px) */
@@ -266,5 +295,9 @@ body{
       max-width: 350px; /* Keep the max-width to prevent it from getting too wide */
       margin: 0 auto; /* Center it */
       transform: translate(0, 40px); /* Avoid shifting the form with translate */
+    }
+
+    .captcha-container {
+      margin-top: 20px; /* Adjust spacing for the captcha */
     }
   }

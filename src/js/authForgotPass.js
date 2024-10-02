@@ -91,7 +91,10 @@ forgotPassForm.addEventListener('submit', async (event) => {
 
     // Proceed to send the password reset link
     const { error } = await supabase.auth.resetPasswordForEmail(email, {
-      captchaToken  // Send hCaptcha token to Supabase
+      captchaToken,  // Send hCaptcha token to Supabase
+      options: {
+        redirectTo: 'https://r-d-guild.github.io/Final-Version---CSDB-Collaboration-Skills-Database-/reset-password.html',
+      }
     });
 
     if (error) {
@@ -114,7 +117,4 @@ closePopup.addEventListener('click', () => {
   hidePopup();  // Hide the popup
 
   // Redirect to the reset password page after 5 seconds
-  setTimeout(() => {
-    window.location.href = '/reset-password.html';  // Change the URL as needed
-  }, 5000);  // 5 seconds delay before redirect
 });
