@@ -41,9 +41,8 @@ body{
 .alert {
     color: white;
     background-color: #dc3545;
-    padding: 10px;
-    margin-top: 5px;
-    margin-bottom: 3px;
+    padding: 8px;
+    margin-bottom: 25px;
     border-radius: 5px;
     display: none;  /* Hidden by default */
     position: absolute;
@@ -230,8 +229,8 @@ body{
 /* Large desktops (min-width: 1200px) */
 @media only screen and (min-width: 1200px) {
 .form-container {
-  width: 40%; /* Reduced width for large screens */
-  max-width: 370px; /* Adjusted max-width for better layout */
+  width: 35%; /* Reduced width for large screens */
+  max-width: 360px; /* Adjusted max-width for better layout */
   transform: translate(0, 35px); /* No translation needed */
   margin: 0 auto; /* Center the form */
   padding: 10px; /* Increase padding for large screens */
