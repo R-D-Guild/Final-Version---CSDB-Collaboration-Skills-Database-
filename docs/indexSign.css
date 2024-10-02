@@ -42,9 +42,9 @@ body{
 .alert {
     color: white;
     background-color: #dc3545;
-    padding: 8px;
+    padding: 7px;
     margin-top: 0px;
-    margin-bottom: 25px;
+    transform: translate(0,-30px);
     border-radius: 5px;
     display: none;  /* Hidden by default */
     position: absolute; /* Positioned relative to the form container */
