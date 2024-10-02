@@ -231,7 +231,11 @@ body{
 @media only screen and (min-width: 1200px) {
   .form-container {
     width: 40%; /* Reduced width for large screens */
+<<<<<<< HEAD
     max-width: 370px; /* Adjusted max-width for better layout */
+=======
+    max-width: 350px; /* Adjusted max-width for better layout */
+>>>>>>> 0fd3eec863ddb6cc498b1094fb9df4d7e15949b0
     transform: translate(0, 35px); /* No translation needed */
     margin: 0 auto; /* Center the form */
     padding: 10px; /* Increase padding for large screens */
