@@ -18,7 +18,7 @@ const showError = (message) => {
 };
 
 // Handle OAuth provider sign-ups with common error handling
-const handleOAuthSignUp = async (provider) => {
+const handleOAuthSignUp = async (provider, redirectTo) => {
   try {
     const { error } = await supabase.auth.signInWithOAuth({
        provider,

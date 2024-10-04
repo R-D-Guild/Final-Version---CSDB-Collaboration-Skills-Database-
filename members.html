@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Members List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #090c23;
+            color: #f39938;
+            padding: 50px;
+        }
+        h1, h2 {
+            color: #f39938;
+        }
+        form {
+            background-color: #1a1f3a;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+        input[type="text"],
+        textarea,
+        input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #f39938;
+            border-radius: 4px;
+            background-color: #232845;
+            color: #f39938;
+        }
+        .submit-btn {
+            background-color: #f39938;
+            color: #090c23;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .submit-btn:hover {
+            background-color: #d38634;
+        }
+        .back-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #f39938;
+            color: #090c23;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        .back-button:hover {
+            background-color: #d38634;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Submit Your Information</h1>
+    <p>Please fill out the forms below with your personal and professional details.</p>
+
+    <form method="POST">
+        <!-- Member Form -->
+        <h2>Member Information</h2>
+        <label for="id_name">Name:</label>
+        <input type="text" id="id_name" name="name" placeholder="Enter your name">
+
+        <label for="id_biography">Biography:</label>
+        <textarea id="id_biography" name="biography" placeholder="Enter your biography"></textarea>
+
+        <!-- Skill Form -->
+        <h2>Skill Information</h2>
+        <label for="id_soft_skills">Soft Skills:</label>
+        <input type="text" id="id_soft_skills" name="soft_skills" placeholder="e.g., Communication, Teamwork">
+
+        <label for="id_hard_skills">Hard Skills:</label>
+        <input type="text" id="id_hard_skills" name="hard_skills" placeholder="e.g., Python, Data Analysis">
+
+        <label for="id_expertise">Expertise:</label>
+        <input type="text" id="id_expertise" name="expertise" placeholder="e.g., Expert in Python">
+
+        <label for="id_experience_years">Experience Years:</label>
+        <input type="number" id="id_experience_years" name="experience_years" placeholder="Enter experience years">
+
+        <label for="id_proficiency">Proficiency:</label>
+        <input type="text" id="id_proficiency" name="proficiency" placeholder="Enter proficiency level">
+
+        <label for="id_languages">Languages:</label>
+        <input type="text" id="id_languages" name="languages" placeholder="e.g., English, French">
+
+        <!-- Availability Form -->
+        <h2>Plans and Availability</h2>
+        <label for="id_hours_per_week">Hours Per Week:</label>
+        <input type="number" id="id_hours_per_week" name="hours_per_week" placeholder="e.g., 5">
+
+        <label for="id_join_reason">Reason for Joining:</label>
+        <textarea id="id_join_reason" name="join_reason" placeholder="Why do you want to join the program?"></textarea>
+
+        <label for="id_interesting_ecosystem">Interesting Ecosystem:</label>
+        <textarea id="id_interesting_ecosystem" name="interesting_ecosystem" placeholder="What do you find interesting about our ecosystem?"></textarea>
+
+        <label for="id_impact_plan">Impact Plan:</label>
+        <textarea id="id_impact_plan" name="impact_plan" placeholder="How do you plan to impact the program?"></textarea>
+
+        <!-- Submit Button -->
+        <button type="submit" class="submit-btn">Submit Information</button>
+    </form>
+
+    <!-- Back Button to the Members List -->
+    <a href="#" class="back-button">Go Back to Members List</a>
+
+</body>
+</html>
