@@ -1,156 +1,172 @@
 import { supabase } from './supabaseClient';  // Import the Supabase client
-import '../css/style.css'; //Import the css styling 
+import '../css/style.css'; // Import the CSS styling
 
-// To handle Discord sign Up method
-document.getElementById("discordSignUpBtn").addEventListener("click", function () {
-    // Trigger Supabase's OAuth sign-in with Discord
-    supabase.auth.signInWithOAuth({
-      provider: 'discord',
-      options: {
-        redirectTo: 'https://skillsdatabase-21b11771237e.herokuapp.com/members/members-list/' 
-      }
-    });
-  })
+// Get the common error message container
+const errorMessage = document.getElementById('confirmationMessage');
 
-    // To handle GitHub sign Up method
-    document.getElementById("gitHubSignUpBtn").addEventListener("click", function () {
-    // Trigger Supabase's OAuth sign-in with GitHub
-    supabase.auth.signInWithOAuth({
-      provider: 'github',
-      options: {
-        redirectTo: 'https://skillsdatabase-21b11771237e.herokuapp.com/members/members-list/l' 
-      }
-      
-    })
-    });
+// Reusable function to show error messages
+const showError = (message) => {
+  errorMessage.textContent = message;
+  errorMessage.classList.add('alert', 'shake');  // Add alert and shake class
+  errorMessage.style.display = 'block';  // Ensure it is visible
 
-    // Optional: Check the user's authentication status
-    supabase.auth.getSession().then(({ data: { session }, error }) => {
-    if (session) {
-      console.log("User is authenticated:", session.user);
-    } else {
-      console.log("User is not authenticated");
+  // Automatically hide the error message after 5 seconds
+  setTimeout(() => {
+    errorMessage.style.display = 'none';
+    errorMessage.classList.remove('shake');  // Remove shake effect after it's hidden
+  }, 5000);  
+};
+
+// Handle OAuth provider sign-ups with common error handling
+const handleOAuthSignUp = async (provider) => {
+  try {
+    const { error } = await supabase.auth.signInWithOAuth({ provider });
+
+    if (error) {
+      console.error(`Error with ${provider} sign-up:`, error.message);
+      showError(`${provider} sign-up failed. Please try again.`);
     }
+  } catch (err) {
+    console.error(`Unexpected error with ${provider} sign-up:`, err);
+    showError(`An unexpected error occurred with ${provider}. Please try again.`);
+  }
+};
+
+// Discord sign-up
+document.getElementById("discordSignUpBtn").addEventListener("click", () => {
+  handleOAuthSignUp('discord');
+});
+
+// GitHub sign-up
+document.getElementById("gitHubSignUpBtn").addEventListener("click", () => {
+  handleOAuthSignUp('github');
+});
+
+// Google sign-up
+document.getElementById('googleSignUpBtn').addEventListener('click', () => {
+  handleOAuthSignUp('google');
+});
+
+// Optional: Check the user's authentication status
+supabase.auth.getSession().then(({ data: { session }, error }) => {
+  if (session) {
+    console.log("User is authenticated:", session.user);
+  } else if (error) {
+    console.error("Session error:", error.message);
+    showError("An error occurred while checking your session.");
+  } else {
+    console.log("User is not authenticated");
+  }
+});
+
+// Email and password sign-up function
+const signUpNewUser = async () => {
+  const form = document.getElementById('signUpFormDetails');
+  const emailInput = document.getElementById('signUpEmail');
+  const passwordInput = document.getElementById('signUpPassword');
+  const togglePassword = document.getElementById('togglePassword');
+
+  // Clear error message when valid input is entered
+  const clearError = () => {
+    errorMessage.style.display = 'none';
+    errorMessage.classList.remove('shake');
+  };
+
+  // Toggle password visibility
+  togglePassword.addEventListener('click', () => {
+    const passwordFieldType = passwordInput.getAttribute('type');
+    passwordInput.setAttribute('type', passwordFieldType === 'password' ? 'text' : 'password');
+    togglePassword.innerHTML = passwordFieldType === 'password'
+      ? `<i class="fa-solid fa-eye-slash"></i>`
+      : `<i class="fa-solid fa-eye"></i>`;
   });
 
-const signUpNewUser = async ()=>{
-    const form = document.getElementById('signUpFormDetails');
-    const emailInput = document.getElementById('signUpEmail');
-    const passwordInput = document.getElementById('signUpPassword');
-    const errorMessage = document.getElementById('confirmationMessage');
-    const togglePassword = document.getElementById('togglePassword');
-    
-    
-    // Show error message and shake effect
-    const showError = (message)=>{
-      errorMessage.textContent = message;
-      errorMessage.classList.add('alert', 'shake');  // Add alert and shake class
-      errorMessage.style.display = 'block';  // Ensure it is visible
-    
-      // Automatically hide the error message after 5 seconds
-      setTimeout(() => {
-        errorMessage.style.display = 'none';
-        errorMessage.classList.remove('shake');  // Remove shake effect after it's hidden
-      }, 9000);  // 5000ms = 5 seconds
+  const resetCaptcha = () => {
+    if (typeof hcaptcha !== 'undefined') {
+      hcaptcha.reset();  // Reset hCaptcha for retry
     }
-    
-    // Clear error message when valid input is entered
-    const clearError = ()=>{
-      errorMessage.style.display = 'none';
-      errorMessage.classList.remove('shake');
+  };
+
+  form.addEventListener('submit', async (event) => {
+    event.preventDefault();
+
+    const email = emailInput.value.trim();
+    const password = passwordInput.value.trim();
+    const captchaToken = hcaptcha.getResponse();  // Get the hCaptcha token
+
+    clearError();
+
+    if (!email || !password) {
+      showError('Email and password are required.');
+      resetCaptcha();
+      return;
     }
-    
-    
-    // Toggle password visibility
-    togglePassword.addEventListener('click', () => {
-      const passwordFieldType = passwordInput.getAttribute('type');
-      
-      if (passwordFieldType === 'password') {
-        passwordInput.setAttribute('type', 'text');  // Show password
-        togglePassword.innerHTML = `<i class="fa-solid fa-eye-slash"></i>`;  // Change icon to "eye-slash"
-      } else {
-        passwordInput.setAttribute('type', 'password');  // Hide password
-        togglePassword.innerHTML = `<i class="fa-solid fa-eye"></i>`;  // Change icon to "eye"
-      }
-    });
-    const resetCaptcha = ()=>{
-      if (typeof hcaptcha !== 'undefined') {
-        hcaptcha.reset();  // Reset the hCaptcha so the user can retry login
-      }
+
+    const validateEmail = (email) => /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email);
+    if (!validateEmail(email)) {
+      showError('Please enter a valid email address.');
+      resetCaptcha();
+      return;
     }
-    
-    form.addEventListener('submit', async (event) => {
-      event.preventDefault();
-      
-      const email = emailInput.value.trim();
-      const password = passwordInput.value.trim();
-      const captchaToken = hcaptcha.getResponse();  // Get the hCaptcha token
-    
-    
-      // Clear error message if inputs are valid
-      clearError();
-    
-      if(!email || !password) {
-        showError('Email and password are required.');
-        resetCaptcha()
-        return; 
-      }
-    
-      // Basic email validation
-      const validateEmail = (email) => /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email);
-      // Email validation check
-      if (!validateEmail(email)) {
-        showError('Please enter a valid email address.');
-        resetCaptcha()
+
+    if (!captchaToken) {
+      showError('Please complete the CAPTCHA.');
+      resetCaptcha();
+      return;
+    }
+
+    try {
+      const { data, error } = await supabase.auth.signUp({
+        email: email,
+        password: password,
+        options: { captchaToken },
+      });
+
+      console.log("Signup data:", data);  // Log the data response
+      console.error("Signup error:", error);  // Log the error response
+
+       // Toggle password visibility
+  togglePassword.addEventListener('click', () => {
+    const passwordFieldType = passwordInput.getAttribute('type');
+    passwordInput.setAttribute('type', passwordFieldType === 'password' ? 'text' : 'password');
+    togglePassword.innerHTML = passwordFieldType === 'password'
+      ? `<i class="fa-solid fa-eye-slash"></i>`
+      : `<i class="fa-solid fa-eye"></i>`;
+  });
+
+      if (error) {
+        console.error("Supabase sign-up error:", error.message);
+        
+        // Additional handling for specific Supabase error messages
+        if (error.message.includes("Invalid login credentials")) {
+          showError("The email or password is incorrect. Please try again.");
+        } else if (error.message.includes("Rate limit exceeded")) {
+          showError("Too many attempts. Please wait and try again.");
+        } else {
+          showError(error.message);  // Show the specific error message from Supabase
+        }
+        
+        resetCaptcha();
         return;
       }
-    
-      if (!captchaToken) {
-        showError('Please complete the CAPTCHA.');
-        resetCaptcha()
-        return; 
+
+      if (!data || !data.user) {
+        showError('Error: Could not retrieve user information after sign-up.');
+        resetCaptcha();
+        return;
       }
-    
-      try {
-        // Sign up the user with Supabase
-        const { data, error } = await supabase.auth.signUp({
-          email: email,
-          password: password,
-          options: {
-            captchaToken,  // Send hCaptcha token
-          },
-        });
-        
-         // Check for Supabase error
-        if (error) {
-          showError( error.message);
-          resetCaptcha()
-          return;
-        }
-    
-           // Access the user object from the data returned by Supabase
-        const user = data.user;
-        
-        if(!user) {
-          showError('Error: Could not retrieve user information after sign-up.');
-          resetCaptcha()
-          return;
-        }
-    
-        // Success message
-        errorMessage.style.color = 'green';
-        errorMessage.textContent = 'Sign up successful! Please check your email to verify your account.';
-    
-        // Store the email temporarily so it can be used in the verification page
-        localStorage.setItem('pendingVerificationEmail', email);
-        // Redirect to verification pending page
-          window.location.href = './verification-pending.html';  // Adjust the path as needed
-          
-        } catch (error) {
-          showError('Something went wrong. Please try again later.');
-          resetCaptcha()
-        }
-      });
+
+      errorMessage.style.color = 'green';
+      errorMessage.textContent = 'Sign up successful! Please check your email to verify your account.';
+      localStorage.setItem('pendingVerificationEmail', email);
+      window.location.href = './verification-pending.html';
+    } catch (error) {
+      console.error("Unexpected error during sign-up:", error);
+      showError('Something went wrong. Please try again later.');
+      resetCaptcha();
+    }
+  });
 };
+
 // Call the function to ensure the form behavior is handled
 signUpNewUser();
