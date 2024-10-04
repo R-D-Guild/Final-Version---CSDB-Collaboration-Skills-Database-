@@ -20,7 +20,13 @@ const showError = (message) => {
 // Handle OAuth provider sign-ups with common error handling
 const handleOAuthSignUp = async (provider) => {
   try {
-    const { error } = await supabase.auth.signInWithOAuth({ provider });
+    const { error } = await supabase.auth.signInWithOAuth({
+       provider,
+       options: {
+        redirectTo: redirectTo,  // Use the redirect URL passed as a parameter
+      }
+
+    });
 
     if (error) {
       console.error(`Error with ${provider} sign-up:`, error.message);
@@ -34,17 +40,17 @@ const handleOAuthSignUp = async (provider) => {
 
 // Discord sign-up
 document.getElementById("discordSignUpBtn").addEventListener("click", () => {
-  handleOAuthSignUp('discord');
+  handleOAuthSignUp('discord', 'https://skillsdatabase-21b11771237e.herokuapp.com/members/members-list/');
 });
 
 // GitHub sign-up
 document.getElementById("gitHubSignUpBtn").addEventListener("click", () => {
-  handleOAuthSignUp('github');
+  handleOAuthSignUp('github', 'https://skillsdatabase-21b11771237e.herokuapp.com/members/members-list/');
 });
 
 // Google sign-up
 document.getElementById('googleSignUpBtn').addEventListener('click', () => {
-  handleOAuthSignUp('google');
+  handleOAuthSignUp('google','https://skillsdatabase-21b11771237e.herokuapp.com/members/members-list/');
 });
 
 // Optional: Check the user's authentication status
