@@ -14,7 +14,7 @@ const showError = (message) => {
   setTimeout(() => {
     errorMessage.style.display = 'none';
     errorMessage.classList.remove('shake');  // Remove shake effect after it's hidden
-  }, 5000);  
+  }, 3000);  
 };
 
 // Handle OAuth provider sign-ups with common error handling
