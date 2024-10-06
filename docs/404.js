@@ -1,0 +1,1 @@
+let timer=10;const timerElement=document.getElementById("redirect-timer"),redirectToHome=setInterval((()=>{timer--,timerElement.textContent=timer,0===timer&&(clearInterval(redirectToHome),window.location.href="index.html")}),1e4);

@@ -1,6 +1,7 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const Dotenv = require('dotenv-webpack');
 
 // Check if it's production mode or development mode
@@ -21,7 +22,9 @@ module.exports = {
         filename: '[name].bundle.js',  // Each entry will have its own file
         path: path.resolve(__dirname, 'docs'),
         clean: true,  // Clean the /dist folder before each build
-          publicPath: '/Final-Version---CSDB-Collaboration-Skills-Database-/',  // Serve from the root
+        publicPath: isProduction
+        ? '/Final-Version---CSDB-Collaboration-Skills-Database/'  // For production
+        : '/',  // Use root path for development
         
     },
 
@@ -89,6 +92,13 @@ module.exports = {
         }),
         new MiniCssExtractPlugin({
             filename: '[name].css',  // Generates [name].css for each bundle
+        }),
+        new CopyWebpackPlugin({
+            patterns: [
+                { from: 'public/404.html', to: '404.html' },  // Copy 404.html to docs
+                { from: 'src/css/404.css', to: '404.css' },  // Copy 404.css to docs
+                { from: 'src/js/404.js', to: '404.js' },    // Copy 404.js to docs
+            ],
         }),
         new Dotenv(),  // Load env
     ],

@@ -1,0 +1,27 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Page Not Found</title>
+    <link rel="stylesheet" href="/src/css/404.css">
+</head>
+<body>
+    <div class="container">
+        <h2 class="error-code">404</h2>
+        <p>Oops! You found a page that doesn’t exist.</p>
+        <p>Looks like you took a wrong turn. Let's get you back on track.</p>
+        
+        <h3>Popular Pages:</h3>
+
+        <form action="https://www.google.com/search" method="get" class="search-form">
+            <input type="hidden" name="sitesearch" value="yourwebsite.com" />
+            <input type="text" name="q" placeholder="Search your site..." required />
+            <button type="submit">Search</button>
+        </form>
+
+        <p>You will be redirected to the homepage in <span id="redirect-timer">10</span> seconds.</p>
+
+        <script src="/src/js/404.js"></script> <!-- Link to your JS file -->
+    </div>
+</body>
+</html>
