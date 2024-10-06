@@ -22,9 +22,7 @@ module.exports = {
         filename: '[name].bundle.js',  // Each entry will have its own file
         path: path.resolve(__dirname, 'docs'),
         clean: true,  // Clean the /dist folder before each build
-        publicPath: isProduction
-        ? '/Final-Version---CSDB-Collaboration-Skills-Database-/'  // For production
-        : '/',  // Use root path for development
+          publicPath: '/Final-Version---CSDB-Collaboration-Skills-Database/'
         
     },
 
