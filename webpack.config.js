@@ -23,7 +23,7 @@ module.exports = {
         path: path.resolve(__dirname, 'docs'),
         clean: true,  // Clean the /dist folder before each build
         publicPath: isProduction
-        ? '/Final-Version---CSDB-Collaboration-Skills-Database/'  // For production
+        ? '/Final-Version---CSDB-Collaboration-Skills-Database-/'  // For production
         : '/',  // Use root path for development
         
     },
