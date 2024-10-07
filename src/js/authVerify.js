@@ -24,5 +24,5 @@ resendButton.addEventListener('click', async () => {
 
 // Redirect to login after some time (optional)
 setTimeout(() => {
-  window.location.href = '/login.html';  // Redirect to login page after a delay
+  window.location.href = './login.html';  // Redirect to login page after a delay
 }, 10000);  // Wait 10 seconds before redirecting
