@@ -1,0 +1,168 @@
+{% extends "admin/login.html" %}
+{% load i18n static %}
+
+{% block extrastyle %}
+{{ block.super }}
+<style>
+    /* Modern login styling */
+    body.login {
+        background: #0c102e;
+        color: white;
+    }
+    
+    .login #container {
+        background: #0c102e;
+        box-shadow: none;
+        border-radius: 12px;
+        padding: 30px;
+        max-width: 450px;
+    }
+    
+    .login #header {
+        background: transparent;
+        padding-top: 40px;
+    }
+    
+    .login #header h1 {
+        font-size: 2.5rem;
+        background: linear-gradient(90deg, #f6d365 0%, #ff8c00 25%, #e968a2 50%, #8a49a1 75%, #6a3de8 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        text-fill-color: transparent;
+        margin-bottom: 30px;
+        font-weight: bold;
+    }
+    
+    .login .form-row {
+        padding: 10px 0;
+    }
+    
+    .login .form-row label {
+        color: #ff8c00;
+        font-weight: bold;
+        font-size: 1rem;
+        padding: 0 0 10px;
+    }
+    
+    .login .form-row input {
+        background-color: rgba(255, 255, 255, 0.05);
+        color: white;
+        border: 1px solid rgba(255, 140, 0, 0.5);
+        border-radius: 20px;
+        padding: 12px 15px;
+        font-size: 1rem;
+    }
+    
+    .login .submit-row {
+        padding: 20px 0 0;
+    }
+    
+    .login .submit-row input {
+        background: linear-gradient(90deg, #6a3de8 0%, #8a49a1 100%);
+        color: white;
+        border: none;
+        border-radius: 20px;
+        padding: 12px 20px;
+        text-transform: uppercase;
+        font-weight: bold;
+        width: 100%;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+    
+    .login .submit-row input:hover {
+        background: linear-gradient(90deg, #7d52f5 0%, #9d5cb4 100%);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 15px rgba(106, 61, 232, 0.3);
+    }
+    
+    /* Password toggle styles */
+    .password-container {
+        position: relative;
+        display: inline-block;
+        width: 100%;
+    }
+    
+    .password-toggle {
+        position: absolute;
+        right: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: #ff8c00;
+        padding: 0;
+        width: 16px;
+        height: 16px;
+        z-index: 100;
+    }
+    
+    .password-toggle svg {
+        width: 16px;
+        height: 16px;
+    }
+    
+    /* Welcome message */
+    .welcome-message {
+        text-align: center;
+        margin-bottom: 30px;
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 1rem;
+        line-height: 1.5;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="welcome-message">
+    Welcome to the admin portal. Please log in to continue.
+</div>
+
+{{ block.super }}
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Update the site name with gradient text
+        const siteHeader = document.querySelector('#header h1');
+        if (siteHeader) {
+            siteHeader.textContent = 'Admin Login';
+        }
+        
+        // Find the password field
+        var passwordField = document.querySelector('input[name="password"]');
+        if (passwordField) {
+            // Create container
+            var container = document.createElement('div');
+            container.className = 'password-container';
+            
+            // Replace field with container
+            passwordField.parentNode.insertBefore(container, passwordField);
+            container.appendChild(passwordField);
+            
+            // Create toggle button
+            var toggleBtn = document.createElement('button');
+            toggleBtn.type = 'button';
+            toggleBtn.className = 'password-toggle';
+            toggleBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32z"/></svg>';
+            container.appendChild(toggleBtn);
+            
+            // Add click event
+            toggleBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                if (passwordField.type === 'password') {
+                    passwordField.type = 'text';
+                    this.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path fill="currentColor" d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1z"/></svg>';
+                } else {
+                    passwordField.type = 'password';
+                    this.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32z"/></svg>';
+                }
+                return false;
+            });
+        }
+    });
+</script>
+{% endblock %}

@@ -1,0 +1,319 @@
+{% extends "admin/base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}{{ title }} | {{ site_title|default:_('Django site admin') }}{% endblock %}
+
+{% block extrastyle %}
+<style>
+    /* Hide Recent Actions */
+    #content-related {
+        display: none !important;
+    }
+    
+    /* Hide Filter Sidebar */
+    #changelist-filter {
+        display: none !important;
+    }
+    
+    /* Expand the result list to full width */
+    .changelist-form .results {
+        width: 100% !important;
+    }
+    
+    /* Adjust the width of the content area */
+    #changelist {
+        width: 100% !important;
+    }
+    
+    :root {
+        --header-bg: rgba(255, 255, 255, 0.1);
+        --module-bg: rgba(20, 20, 40, 0.4);
+        --text-gradient: linear-gradient(90deg, #ff00ff, #00ffff);
+        --white-bg: rgba(255, 255, 255, 0.15);
+        --row-bg: rgba(255, 255, 255, 0.1);
+        --dark-purple: rgba(45, 17, 85, 0.8);
+        --deeper-purple: rgba(30, 10, 60, 0.9); /* Deeper color for home header */
+    }
+
+    /* Breadcrumbs/Navigation - Deeper Color */
+    .breadcrumbs {
+        background: var(--deeper-purple) !important;
+        padding: 12px 20px;
+        border-radius: 4px;
+        margin-bottom: 20px;
+    }
+
+    /* Table Headers */
+    .table-header {
+        background: rgba(255, 255, 255, 0.1) !important;
+        color: white !important;
+        padding: 12px 15px;
+        font-weight: 500;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    /* Table Rows */
+    .row {
+        background: rgba(20, 20, 20, 0.7);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .row:hover {
+        background: rgba(255, 255, 255, 0.05);
+    }
+
+    /* Column Headers */
+    .column-header {
+        color: var(--text-orange);
+        font-weight: 500;
+        padding: 12px 15px;
+    }
+
+    /* Search Bar */
+    .search-container {
+        background: rgba(20, 20, 20, 0.7);
+        padding: 15px;
+        border-radius: 4px;
+        margin-bottom: 15px;
+    }
+
+    input[type="text"] {
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        color: white;
+        padding: 8px 15px;
+        border-radius: 4px;
+        width: 100%;
+        max-width: 300px;
+    }
+
+    /* Links */
+    a {
+        color: #00ffff;
+        text-decoration: none;
+    }
+
+    a:hover {
+        color: #ff00ff;
+    }
+
+    /* Keep existing button styles */
+    .viewlink, .addlink, .changelink {
+        background: transparent;
+        color: #ff8c00 !important;
+        border: 1px solid rgba(255, 140, 0, 0.5);
+        border-radius: 20px;
+        padding: 6px 16px;
+        font-size: 0.9em;
+        transition: all 0.2s ease;
+    }
+
+    .viewlink:hover, .addlink:hover, .changelink:hover {
+        background: rgba(255, 140, 0, 0.1);
+        box-shadow: 0 0 15px rgba(255, 140, 0, 0.3);
+    }
+
+    /* Main Section Headers */
+    .app-auth h3, 
+    .app-members h3 {
+        background: var(--header-bg) !important;
+        color: white !important;
+        padding: 15px 20px;
+        margin: 0;
+        font-size: 1.1em;
+        letter-spacing: 0.5px;
+        border-radius: 12px 12px 0 0;
+        backdrop-filter: blur(10px);
+    }
+
+    /* Module Group Headers - White Background */
+    .module h2,
+    .module caption,
+    #content-related .module h2 {
+        background: var(--white-bg) !important;
+        color: white !important;
+        padding: 15px 20px;
+        margin: 0;
+        font-size: 1.1em;
+        letter-spacing: 0.5px;
+        border-radius: 12px 12px 0 0;
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    /* Logo and branding styling */
+    #branding {
+        display: flex;
+        align-items: center;
+        padding: 10px 20px;
+    }
+
+    #branding h1 {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin: 0;
+        padding: 0;
+    }
+
+    #branding img {
+        width: 40px;  /* Reduced size */
+        height: auto;
+        object-fit: contain;
+    }
+
+    /* Body and background */
+    body {
+        background-image: url("{% static 'members/images/background.jpg' %}");
+        background-size: cover;
+        background-attachment: fixed;
+        background-position: center;
+    }
+
+    /* Header area */
+    #header {
+        background: var(--dark-purple) !important;
+    }
+
+    /* Content area */
+    #content {
+        background: transparent;
+    }
+
+    /* Module sections */
+    .module {
+        background: var(--module-bg) !important;
+        border-radius: 12px;
+        margin-bottom: 20px;
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+    }
+
+    /* List items - White background */
+    .module ul li {
+        background: var(--row-bg) !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 12px 0;
+        margin: 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        backdrop-filter: blur(5px);
+    }
+
+    .module ul li:hover {
+        background: rgba(255, 255, 255, 0.2) !important;
+    }
+
+    /* Text styling */
+    .module ul li a {
+        color: white !important;
+        font-weight: 500;
+        padding: 0 20px;
+        text-decoration: none;
+    }
+
+    /* Gradient text for section titles */
+    .section {
+        background: var(--text-gradient);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent !important;
+        font-weight: 600;
+    }
+
+    /* Welcome text */
+    .welcome-message {
+        color: white;
+        text-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Admin logout button */
+    .logout-button {
+        color: #ff8c00 !important;
+        text-decoration: none;
+        margin-left: 15px;
+        transition: all 0.2s ease;
+    }
+    
+    .logout-button:hover {
+        color: #ffaa55 !important;
+        text-decoration: underline;
+    }
+</style>
+{% endblock %}
+
+{% block usertools %}
+<div id="user-tools">
+    {% if user.is_authenticated %}
+    <strong>{% translate 'WELCOME,' %}</strong>
+    <strong>{{ user.get_username|upper }}</strong>
+    <a href="{% url 'admin:password_change' %}" class="logout-button">{% translate 'CHANGE PASSWORD' %}</a> /
+    <a href="{% url 'admin:logout' %}" class="logout-button">{% translate 'LOG OUT' %}</a>
+    {% endif %}
+</div>
+{% endblock %}
+
+{% block branding %}
+<h1>
+    <img src="{% static 'members/images/SNET-Logo.png' %}" alt="SNET Logo">
+    <span>{{ site_header|default:_('Collaboration Skills Database Admin') }}</span>
+</h1>
+{% endblock %}
+
+{% block breadcrumbs %}{% endblock %}
+
+{% block content %}
+<div class="module">
+    <div class="auth-section">
+        <h2>AUTHENTICATION AND AUTHORIZATION</h2>
+        <ul class="nav-tabs">
+            <li><a href="#">Groups <span class="viewlink">View</span></a></li>
+            <li><a href="#">Users <span class="viewlink">View</span></a></li>
+        </ul>
+    </div>
+
+    <div class="members-section">
+        <h2>MEMBERS</h2>
+        <ul class="nav-tabs">
+            <li><a href="#">Availabilitys <span class="viewlink">View</span></a></li>
+            <li><a href="#">Members <span class="viewlink">View</span></a></li>
+            <li><a href="#">Skills <span class="viewlink">View</span></a></li>
+        </ul>
+    </div>
+</div>
+{% endblock %}
+
+{% block extrahead %}
+{{ block.super }}
+<script>
+    // Fix logout functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        const logoutLink = document.querySelector('a[href="{% url "admin:logout" %}"]');
+        if (logoutLink) {
+            logoutLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Create a form to submit POST request for logout
+                const form = document.createElement('form');
+                form.method = 'POST';
+                form.action = '{% url "admin:logout" %}';
+                form.style.display = 'none';
+                
+                // Add CSRF token
+                const csrfToken = document.createElement('input');
+                csrfToken.type = 'hidden';
+                csrfToken.name = 'csrfmiddlewaretoken';
+                csrfToken.value = '{{ csrf_token }}';
+                form.appendChild(csrfToken);
+                
+                // Add to document and submit
+                document.body.appendChild(form);
+                form.submit();
+            });
+        }
+    });
+</script>
+{% endblock %} 
