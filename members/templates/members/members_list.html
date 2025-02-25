@@ -1,4 +1,4 @@
-
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,99 +6,520 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Collaboration Skills Database</title>
     <style>
+        :root {
+            --primary-color: #f39938;
+            --bg-dark: #090c23;
+            --bg-darker: #0b0e2f;
+            --accent-color: #7f1ba4;
+            --error-color: #ff4f4f;
+            --success-color: #4CAF50;
+        }
+
         body {
-            font-family: Arial, sans-serif;
-            background-color: #090c23;
-            color: #f39938;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: url("{% static 'members/images/background.jpg' %}") no-repeat center center fixed;
+            background-size: cover;
+            color: var(--primary-color);
             margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .logo {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 50px;
+            height: auto;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
             padding: 20px;
         }
 
         h1, h2 {
-            color: #f39938;
+            color: var(--primary-color);
             text-align: center;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
 
         form {
-            background-color: #090c23;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-            max-width: 600px;
-            margin: auto;
+            background-color: var(--bg-darker);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(243, 153, 56, 0.1);
         }
 
         fieldset {
-            border: none;
-            margin-bottom: 15px;
+            border: 1px solid var(--primary-color);
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            border-radius: 10px;
+            background: rgba(11, 14, 47, 0.6);
+        }
+
+        legend {
+            padding: 0 1rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            font-size: 1.2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
         }
 
         label {
             display: block;
-            margin-bottom: 5px;
-            font-weight: bold;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--primary-color);
         }
 
         input[type="text"],
+        input[type="email"],
         input[type="number"],
+        input[type="url"],
         textarea,
         select {
             width: 100%;
-            padding: 8px;
-            margin-bottom: 10px;
-            border: 1px solid #f39938;
-            border-radius: 4px;
+            padding: 12px;
+            margin-bottom: 0.5rem;
+            border: 2px solid rgba(243, 153, 56, 0.3);
+            border-radius: 8px;
+            background-color: rgba(11, 14, 47, 0.8);
+            color: var(--primary-color);
             box-sizing: border-box;
-            background-color: #090c23;
-            color: #f39938;
+            transition: all 0.3s ease;
+        }
+
+        input:focus,
+        textarea:focus,
+        select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(243, 153, 56, 0.2);
+        }
+
+        .errorlist {
+            color: var(--error-color);
+            font-size: 0.9rem;
+            margin: 5px 0;
+            padding-left: 0;
+            list-style: none;
         }
 
         .button-container {
             text-align: center;
-            margin-top: 20px;
+            margin-top: 2rem;
         }
 
         button[type="submit"] {
-            background-color: #7f1ba4;
-            color: #fff;
-            padding: 10px 20px;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 12px 30px;
             border: none;
-            border-radius: 4px;
+            border-radius: 8px;
             cursor: pointer;
-            font-size: 16px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(127, 27, 164, 0.3);
         }
 
         button[type="submit"]:hover {
             background-color: #6b1587;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(127, 27, 164, 0.4);
+        }
+
+        button[type="submit"]:active {
+            transform: translateY(0);
+        }
+
+        /* Form field animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .form-group {
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+
+            form {
+                padding: 1rem;
+            }
+
+            fieldset {
+                padding: 1rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            button[type="submit"] {
+                width: 100%;
+                padding: 15px;
+            }
+        }
+
+        /* Custom styling for success messages */
+        .success-message {
+            background-color: rgba(76, 175, 80, 0.1);
+            border: 1px solid var(--success-color);
+            color: var(--success-color);
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        /* Tooltip styling */
+        .tooltip {
+            position: relative;
+            display: inline-block;
+        }
+
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            text-align: center;
+            padding: 5px 10px;
+            border-radius: 6px;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        /* Updated Modal Styles */
+        .modal {
+            display: block;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            overflow-y: auto; /* Enable scrolling */
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .modal-content {
+            position: relative;
+            background-color: var(--bg-darker);
+            margin: 20px auto;
+            padding: 30px;
+            width: 90%;
+            max-width: 700px;
+            border-radius: 15px;
+            border: 1px solid var(--primary-color);
+            color: white;
+            box-shadow: 0 0 20px rgba(243, 153, 56, 0.2);
+            text-align: center;
+        }
+
+        .modal-title {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            text-align: center;
+            color: var(--primary-color);
+        }
+
+        .modal-section {
+            margin: 20px 0;
+            padding: 0 15px;
+            text-align: center;
+        }
+
+        .modal-section h3 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .modal-section p,
+        .modal-section li {
+            color: white;
+            margin: 8px 0;
+        }
+
+        .modal-section ul {
+            padding-left: 0;
+            list-style: none;
+            margin: 10px 0;
+        }
+
+        .modal-button {
+            display: block;
+            width: 100%;
+            max-width: 400px;
+            margin: 30px auto;
+            padding: 15px 25px;
+            background: linear-gradient(to right, #8e2de2, #4a00e0);
+            color: white;
+            border: none;
+            border-radius: 25px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+            font-weight: 500;
+            box-shadow: 0 4px 15px rgba(142, 45, 226, 0.4);
+        }
+
+        .modal-button:hover {
+            background: linear-gradient(to right, #9b4deb, #5c1ceb);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(142, 45, 226, 0.6);
+        }
+
+        .modal-button:active {
+            transform: translateY(0);
+        }
+
+        /* Ensure text remains centered on mobile */
+        @media (max-width: 768px) {
+            .modal-content,
+            .modal-section {
+                text-align: center;
+            }
+            
+            .modal-button {
+                width: 90%;
+                max-width: 300px;
+            }
+        }
+
+        /* Hide the form initially */
+        .form-container {
+            display: none;
+        }
+
+        /* Updated Modal Text Colors */
+        .modal-content {
+            text-align: center;
+            color: white;
+        }
+
+        .modal-title {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            text-align: center;
+            color: var(--primary-color);
+        }
+
+        .modal-section {
+            margin: 20px 0;
+            padding: 0 15px;
+            text-align: center;
+        }
+
+        .modal-section h3 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .modal-section p,
+        .modal-section li {
+            color: white;
+            margin: 8px 0;
+        }
+
+        /* Keep the footer text white but slightly transparent */
+        .modal-footer p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9em;
         }
     </style>
 </head>
 <body>
+    <img src="{% static 'members/images/SNET-Logo.png' %}" alt="SNET Logo" class="logo">
+    
+    <!-- Updated Privacy Notice Modal -->
+    <div id="privacyModal" class="modal">
+        <div class="modal-content">
+            <h2 class="modal-title">Data Privacy and Consent Notice</h2>
+            <p>Please read the following information carefully before proceeding.</p>
+            
+            <div class="modal-section">
+                <p>Welcome to the Collaboration Skills Database (CSDB)! Your privacy is our priority, and we comply with recognized data protection regulations, including the General Data Protection Regulation (GDPR), CCP, and other relevant laws.</p>
+            </div>
 
-<h1>Collaboration Skills Database</h1>
+            <div class="modal-section">
+                <h3>What We Collect</h3>
+                <p>We collect and use information such as your name, skills, availability, and Discord ID to enhance collaboration and connect you with relevant opportunities.</p>
+            </div>
 
-<form method="post">
-    {% csrf_token %}
+            <div class="modal-section">
+                <h3>How We Protect Your Data</h3>
+                <ul>
+                    <li>Your data is securely encrypted and stored on a compliant platform.</li>
+                    <li>Only authorized personnel can access your information.</li>
+                </ul>
+            </div>
 
-    <fieldset>
-        <legend><h2>Member Information</h2></legend>
-        {{ member_form.as_p }}
-    </fieldset>
+            <div class="modal-section">
+                <h3>Your Rights</h3>
+                <ul>
+                    <li>Access, correct, or delete your data anytime.</li>
+                    <li>Withdraw your consent and stop participating at any point.</li>
+                </ul>
+            </div>
 
-    <fieldset>
-        <legend><h2>Skill Information</h2></legend>
-        {{ skill_form.as_p }}  <!-- Render the skill form directly -->
-    </fieldset>
+            <div class="modal-section">
+                <h3>How We Use Your Data</h3>
+                <p>Your data will only be used to match skills, build teams, and support project coordination. It will never be shared with third parties without your permission.</p>
+            </div>
 
-    <fieldset>
-        <legend><h2>Plans and Availability</h2></legend>
-        {{ availability_form.as_p }}  <!-- Render the availability form directly -->
-    </fieldset>
-
-    <div class="button-container">
-        <button type="submit">Save</button>
+            <div class="modal-footer">
+                <button id="agreeButton" class="modal-button">I Agree and Proceed</button>
+                <p style="margin-top: 10px; font-size: 0.9em;">
+                    You can withdraw your consent at any time by contacting us.
+                </p>
+            </div>
+        </div>
     </div>
-</form>
+
+    <!-- Your existing form container -->
+    <div class="form-container" id="formContainer">
+        <div class="container">
+            <h1>Collaboration Skills Database</h1>
+
+            <form method="post">
+                {% csrf_token %}
+
+                <fieldset>
+                    <legend><h2>Member Information</h2></legend>
+                    {% for field in member_form %}
+                        <div class="form-group">
+                            <label for="{{ field.id_for_label }}">{{ field.label }}:</label>
+                            {{ field }}
+                            {% if field.help_text %}
+                                <div class="tooltip">
+                                    <span class="tooltiptext">{{ field.help_text }}</span>
+                                </div>
+                            {% endif %}
+                            {% if field.errors %}
+                                <ul class="errorlist">
+                                    {% for error in field.errors %}
+                                        <li>{{ error }}</li>
+                                    {% endfor %}
+                                </ul>
+                            {% endif %}
+                        </div>
+                    {% endfor %}
+                </fieldset>
+
+                <fieldset>
+                    <legend><h2>Skill Information</h2></legend>
+                    {% for field in skill_form %}
+                        <div class="form-group">
+                            <label for="{{ field.id_for_label }}">{{ field.label }}:</label>
+                            {{ field }}
+                            {% if field.help_text %}
+                                <div class="tooltip">
+                                    <span class="tooltiptext">{{ field.help_text }}</span>
+                                </div>
+                            {% endif %}
+                            {% if field.errors %}
+                                <ul class="errorlist">
+                                    {% for error in field.errors %}
+                                        <li>{{ error }}</li>
+                                    {% endfor %}
+                                </ul>
+                            {% endif %}
+                        </div>
+                    {% endfor %}
+                </fieldset>
+
+                <fieldset>
+                    <legend><h2>Plans and Availability</h2></legend>
+                    {% for field in availability_form %}
+                        <div class="form-group">
+                            <label for="{{ field.id_for_label }}">{{ field.label }}:</label>
+                            {{ field }}
+                            {% if field.help_text %}
+                                <div class="tooltip">
+                                    <span class="tooltiptext">{{ field.help_text }}</span>
+                                </div>
+                            {% endif %}
+                            {% if field.errors %}
+                                <ul class="errorlist">
+                                    {% for error in field.errors %}
+                                        <li>{{ error }}</li>
+                                    {% endfor %}
+                                </ul>
+                            {% endif %}
+                        </div>
+                    {% endfor %}
+                </fieldset>
+
+                <div class="button-container">
+                    <button type="submit">Save Information</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const modal = document.getElementById('privacyModal');
+            const formContainer = document.getElementById('formContainer');
+            const agreeButton = document.getElementById('agreeButton');
+
+            // Check if user has already agreed
+            if (!localStorage.getItem('privacyAgreed')) {
+                modal.style.display = 'block';
+                formContainer.style.display = 'none';
+            } else {
+                modal.style.display = 'none';
+                formContainer.style.display = 'block';
+            }
+
+            agreeButton.addEventListener('click', function() {
+                // Store the consent
+                localStorage.setItem('privacyAgreed', 'true');
+                // Hide modal and show form
+                modal.style.display = 'none';
+                formContainer.style.display = 'block';
+            });
+        });
+    </script>
 
 </body>
 </html>

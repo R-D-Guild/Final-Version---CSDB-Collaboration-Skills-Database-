@@ -8,12 +8,11 @@
 
 # SkillsDatabase/urls.py
 
+from django.contrib import admin
 from django.urls import path, include
-from members.admin import my_admin_site  # Import your custom admin site
 
 urlpatterns = [
-    path('myadmin/', my_admin_site.urls),  # Use the custom admin site at /myadmin/
-    
-    path('members/', include('members.urls')),  # Include URLs from the members app
+    path('admin/', admin.site.urls),  # Use the default admin.site
+    path('', include('members.urls')),
 ]
 
