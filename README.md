@@ -9,3 +9,10 @@ https://docs.google.com/document/d/1eHdauTZ41UAhyKf_l-m39p0f34IYZ_IoNwMQDHCIXpI/
 
 They have worked the last month in collaboration with @rojokaboti & @0xkenichi with project management of @lordkizzy & @guillermolucero.
 
+
+
+**PROJECT DOCUMENTATION**
+
+
+
+![image](https://github.com/user-attachments/assets/bd12dae5-c8ab-4728-abfa-784a659ad29f)
