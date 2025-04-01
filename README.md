@@ -28,14 +28,18 @@ The beta version is now live and accessible at https://skills-database.up.railwa
 
 Guilds and WG can use the skills database form to match employees with internal projects based on their skills and availability.
 
- Facilitate the formation of specialized teams for events or community projects by quickly identifying volunteers’ expertise.
+Facilitate the formation of specialized teams for events or community projects by quickly identifying volunteers’ expertise.
 
  Support collaborative projects or research groups by grouping students based on complementary skills.
 
-** Programming Languages & Frameworks**
+ 
+
+**Programming Languages & Frameworks**
 Frontend: JavaScript, HTML and CSS
 Backend:Python (Django Framework)
 Database:PostgreSQL
+
+
 
 **Deployment**
 Beta Deployed on Railway
