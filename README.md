@@ -14,7 +14,7 @@ They have worked the last month in collaboration with @rojokaboti & @0xkenichi w
 
 
 
-**PROJECT DOCUMENTATION**
+**Skills Database (SDB)**
 
 The Skills Database (SDB) is a structured skills registry designed to streamline team collaboration.
 It enables users to provide their skills, expertise, availability, and relevant experience, creating a comprehensive and searchable database for optimized team formation.
@@ -30,13 +30,16 @@ Guilds and WG can use the skills database form to match employees with internal 
 
 Facilitate the formation of specialized teams for events or community projects by quickly identifying volunteers’ expertise.
 
- Support collaborative projects or research groups by grouping students based on complementary skills.
+Support collaborative projects or research groups by grouping students based on complementary skills.
 
  
 
 **Programming Languages & Frameworks**
+
 Frontend: JavaScript, HTML and CSS
+
 Backend:Python (Django Framework)
+
 Database:PostgreSQL
 
 
